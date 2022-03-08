@@ -6,6 +6,9 @@ export function Matches() {
   const { data, isFetching } = useQuery('matches', async () => {
     const response = await axios.get('https://mocki.io/v1/697926f0-4999-4cd6-bd3e-fa876fdc4f4b')
     return response.data;
+  }, {
+    refetchOnWindowFocus: false,
+    staleTime: true
   })
 
   return (
